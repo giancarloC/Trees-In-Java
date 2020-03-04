@@ -3,16 +3,18 @@ Binary Search Tree Class
 */
 import java.util.Stack;
 
-public class BST{
+public class AVL{
   //Node struct used in the tree
   class Node{
     int data;
+    int height;
     Node right;
     Node left;
 
     //constructor
     Node(int data){
       this.data = data;
+      this.height = 0;
     }
   }
 
@@ -22,7 +24,7 @@ public class BST{
   //stack used to store parents for methods
   private Stack<Node> stack = new Stack<>();
 
-  //prints nodes in BST
+  //prints nodes in AVL
   private void printHelper(Node node){
     if(node == null)
       return;
@@ -32,6 +34,11 @@ public class BST{
   }
   void print(){
     printHelper(root);
+  }
+
+  //method for rotation
+  private void rotationR(Node gp){
+
   }
 
   /*
