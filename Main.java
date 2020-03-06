@@ -1,13 +1,19 @@
 /*
-Code to test
+Array creation methods and main method.
+Written by Giancarlo Calle
 */
-
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Set;
 import java.util.HashSet;
 
 public class Main{
+
+  /*
+  ----------------------------------------------------
+  ARRAY CREATION METHODS
+  ----------------------------------------------------
+  */
 
   //function that returns a n-array of random numbers
   public static int[] getRandomArray(int n){
@@ -47,7 +53,13 @@ public class Main{
     return arr;
   }
 
-  //main method to test
+
+  /*
+  ----------------------------------------------------
+  MAIN METHOD
+  ----------------------------------------------------
+  */
+
   public static void main(String arg[]){
     //creates BST
     BST b = new BST();
@@ -60,10 +72,10 @@ public class Main{
     //inserts into BST
     int i;
     for(i = 0; i < n; i++){
-      b.insertRec(arr[i]);
+      a.insertIter(arr[i]);
     }
 
-    b.print();
+    a.print();
 
   }
 

@@ -1,5 +1,6 @@
 /*
 Binary Search Tree Class
+Written by Giancarlo Calle
 */
 import java.util.Stack;
 
@@ -30,8 +31,10 @@ public class BST{
     System.out.print(node.data + " ");
     printHelper(node.right);
   }
+
   void print(){
     printHelper(root);
+    System.out.print("\n");
   }
 
   /*
@@ -64,7 +67,6 @@ public class BST{
       else
         insertRecHelper(node.left, val);
     }
-
   }
 
   //Inserts into the tree recursively
@@ -202,10 +204,10 @@ public class BST{
       return node.left;
 
     //case: deleting a node with two children
-    Node replacement = findNextRec(node);
-    int replacementData = replacement.data; //finds next number
-    node.data = replacementData; //replaces node data with next node data
-    deleteRecHelper(node.right, replacementData); //deletes next node
+    Node r = findNextRec(node);
+    int rData = r.data;
+    node.data = rData; //replaces node data with next node data
+    node.right = deleteRecHelper(node.right, rData); //deletes next node
     return node;
   }
 
@@ -213,9 +215,10 @@ public class BST{
   void deleteRec(int val){
     //checks if deleting root
     if(root.data == val){
-      root = null;
+      root = deleteRecHelper(root, val);
       return;
     }
+
     deleteRecHelper(root, val);
   }
 
