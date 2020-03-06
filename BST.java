@@ -11,14 +11,26 @@ public class BST{
     Node right;
     Node left;
 
-    //constructor
+    //Node constructor
     Node(int data){
       this.data = data;
     }
   }
 
+  //BST constructor
+  public BST(){
+    this.root = null;
+    this.levels = 0;
+  }
+
   //will be root of the tree
   Node root;
+
+  //records the amount of levels of the tree traversed w/ methods
+  int levels;
+  public int getLevels(){
+    return levels;
+  }
 
   //stack used to store parents for methods
   private Stack<Node> stack = new Stack<>();
@@ -261,6 +273,9 @@ public class BST{
         }
         curr = curr.right;
       }
+
+      //records number of levels traversed
+      levels++;
     }
   }
 
@@ -367,6 +382,9 @@ public class BST{
 
     //loops until finds node to delete or null
     while(node != null){
+      //counts how many levels are traversed
+      levels++;
+
       //finds node to delete
       if(node.data > val){
         parent = node;

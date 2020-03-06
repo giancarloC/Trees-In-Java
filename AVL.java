@@ -13,14 +13,26 @@ public class AVL{
     Node right;
     Node left;
 
-    //constructor
+    //Node constructor
     Node(int data){
       this.data = data;
     }
   }
 
+  //AVL constructor
+  public AVL(){
+    this.root = null;
+    this.levels = 0;
+  }
+
   //will be root of the tree
   Node root;
+
+  //records the amount of levels of the tree traversed w/ methods
+  int levels;
+  public int getLevels(){
+    return levels;
+  }
 
   //stack used to store parents for methods
   private Stack<Node> stack = new Stack<>();
@@ -417,6 +429,9 @@ public class AVL{
         }
         curr = curr.right;
       }
+
+      //records number of levels traversed
+      levels++;
     }
 
     //balances up nodes
@@ -566,6 +581,9 @@ public class AVL{
     //loops until finds node to delete or null
     Node parent;
     while(curr != null){
+      //records number of levels traversed
+      levels++;
+
       //finds node to delete and adds node to stack to balance later
       if(curr.data > val){
         stack.push(curr);
